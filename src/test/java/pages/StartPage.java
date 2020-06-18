@@ -5,19 +5,17 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class StartPage {
-    private WebDriver driver;
+    private final WebDriver driver;
+    private final WebElement searchEdit;
+    private final WebElement searchBtn;
 
     public StartPage(WebDriver driver) {
         this.driver = driver;
-    }
-
-    public StartPage openStartPage() {
-        driver.get("https://www.google.com/");
-        return this;
+        this.searchEdit = driver.findElement(By.name("q"));
+        this.searchBtn = driver.findElement(By.name("btnK"));
     }
 
     public StartPage typeSearchingItem(){
-        WebElement searchEdit = driver.findElement(By.name("q"));
         String searchItem = "book";
         searchEdit.sendKeys(searchItem);
         searchEdit.click();
@@ -25,7 +23,7 @@ public class StartPage {
     }
 
     public NewSearchPage enterNewSearchPage() {
-        driver.findElement(By.name("btnK")).submit();
+        searchBtn.submit();
         return new NewSearchPage(driver);
     }
 }
