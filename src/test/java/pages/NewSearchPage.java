@@ -1,6 +1,9 @@
+package pages;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 
 public class NewSearchPage {
     WebDriver driver;
@@ -12,7 +15,8 @@ public class NewSearchPage {
     public String readFirstTitle() {
         WebElement title = driver.findElement(By.xpath("//h3[1]"));
         String titleText = title.getText();
-//        System.out.println(" *** " + titleText + " *** ");
+        System.out.println(" *** " + titleText + " *** ");
         return titleText;
     }
+
 }

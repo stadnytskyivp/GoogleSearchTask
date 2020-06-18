@@ -1,3 +1,5 @@
+package tests;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -5,12 +7,13 @@ import org.testng.Assert;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
+import pages.*;
 
 import java.util.concurrent.TimeUnit;
 
 public class SearchTaskTest {
     static WebDriver driver;
-    private final String chickenSandwich = "Фіт сендвіч з куркою";
+    private final String searchingTitle = "wrong title";
 
     @BeforeSuite
     protected void setUpBrowser() {
@@ -21,14 +24,13 @@ public class SearchTaskTest {
     }
 
     @Test
-    public void addItemToCart() {
-        StartPage StartPage = new StartPage(driver);
-        StartPage.openStartPage();
-        String title = StartPage
+    public void searchTest() {
+        StartPage startPage = new StartPage(driver);
+        startPage.openStartPage();
+        startPage
                 .typeSearchingItem()
                 .enterNewSearchPage()
                 .readFirstTitle();
-        Assert.assertEquals(title,"wrong title");
     }
 
     @AfterSuite
