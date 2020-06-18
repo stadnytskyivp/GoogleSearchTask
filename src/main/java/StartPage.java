@@ -16,7 +16,8 @@ public class StartPage {
 
     public StartPage typeSearchingItem(){
         WebElement searchEdit = driver.findElement(By.name("q"));
-        searchEdit.sendKeys("book");
+        String searchItem = "book";
+        searchEdit.sendKeys(searchItem);
         searchEdit.click();
         return this;
     }
